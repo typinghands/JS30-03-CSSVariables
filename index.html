@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- This site is the 3/30 challenges in the js30. CSS Variables. -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS Variables</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>Update CSS Variables with <span class="highlight">JS</span></h1>
+
+      <div class="controls">
+        <label for="spacing">Picture Margin:</label>
+        <input
+          id="spacing"
+          type="range"
+          name="spacing"
+          min="10"
+          max="200"
+          value="10"
+          data-sizing="px"
+        />
+
+        <label for="blur">Picture Blur:</label>
+        <input
+          id="blur"
+          type="range"
+          name="blur"
+          min="0"
+          max="25"
+          value="10"
+          data-sizing="px"
+        />
+
+        <label for="base">Page Color</label>
+        <input id="base" type="color" name="base" value="#FFAF00" />
+      </div>
+
+      <div class="flex">
+        <img
+          src="photo-1504197885-609741792ce7.jpg"
+          alt="Venice"
+          height="600px"
+          id="image"
+        />
+      </div>
+    </main>
+
+    <style type="text/css">
+      :root {
+        --base: #ffaf00;
+        --spacing: 10px;
+        --blur: 10px;
+      }
+
+      html {
+        box-sizing: border-box;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: black;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        font-size: 30px;
+      }
+      body {
+        background: #6190e8; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to left,
+          #a7bfe8,
+          #6190e8
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to left,
+          #a7bfe8,
+          #6190e8
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+      hr {
+        margin: 10px;
+        border: 3px rgba(0, 0, 0, 0.3) solid;
+        box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Verdana", sans-serif;
+        margin: 20px;
+        color: black;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+
+      .controls {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .highlight {
+        color: var(--base);
+      }
+
+      #image {
+        margin: 20px;
+        border: solid var(--base) var(--spacing);
+
+        filter: blur(var(--blur));
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <script type="text/javascript"></script>
+  </body>
+</html>
