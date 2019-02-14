@@ -33,7 +33,7 @@
           name="blur"
           min="0"
           max="25"
-          value="3"
+          value="0"
           data-sizing="px"
         />
 
@@ -45,6 +45,19 @@
           min="0"
           max="200"
           value="90"
+          data-sizing="%"
+        />
+
+        <hr />
+
+        <label for="sepia">Sepia:</label>
+        <input
+          id="sepia"
+          type="range"
+          name="sepia"
+          min="0"
+          max="100"
+          value="10"
           data-sizing="%"
         />
 
@@ -66,8 +79,9 @@
       :root {
         --base: #ffaf00;
         --spacing: 10px;
-        --blur: 3px;
+        --blur: 0px;
         --saturate: 90%;
+        --sepia: 10%;
       }
 
       html {
@@ -129,8 +143,9 @@
         margin: 20px;
         border: solid var(--base) var(--spacing);
 
-        filter: blur(var(--blur));
-        filter: saturate(var(--saturate));
+        filter: drop-shadow(16px 16px 20px rgba(51, 51, 53, 0.815))
+          blur(var(--blur)) saturate(var(--saturate)) sepia(var(--sepia))
+          hue-rotate(10deg);
       }
       .flex {
         display: flex;
