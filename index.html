@@ -6,7 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CSS Variables</title>
+    <link type="image/png" rel="icon" href="favicon.png" />
+    <title>CSS Variables Playground</title>
   </head>
 
   <body>
@@ -36,6 +37,17 @@
           data-sizing="px"
         />
 
+        <label for="saturate">Saturation:</label>
+        <input
+          id="saturate"
+          type="range"
+          name="saturate"
+          min="0"
+          max="200"
+          value="90"
+          data-sizing="%"
+        />
+
         <label for="base">Page Color</label>
         <input id="base" type="color" name="base" value="#FFAF00" />
       </div>
@@ -55,6 +67,7 @@
         --base: #ffaf00;
         --spacing: 10px;
         --blur: 3px;
+        --saturate: 90%;
       }
 
       html {
@@ -117,6 +130,7 @@
         border: solid var(--base) var(--spacing);
 
         filter: blur(var(--blur));
+        filter: saturate(var(--saturate));
       }
       .flex {
         display: flex;
@@ -125,8 +139,9 @@
       }
     </style>
     <script type="text/javascript">
-      const inputs = document.querySelectorAll(".controls input");
-      console.log(inputs);
+      const inputs = document.querySelectorAll(
+        ".controls input"
+      ); /* node list of  all the controls*/
 
       function handleUpdate() {
         const suffix = this.dataset.sizing || "";
